@@ -1,0 +1,38 @@
+<head>
+    <meta charset="utf-8">
+    <style>
+      body{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+<div>
+    <h1>Login Page</h1>
+</div>
+
+<div>
+    <h2>User Login and Input</h2>
+    <form action="/ulogin" method="post" enctype="multipart/form-data">
+        <label for="upubid">Public Key</label>
+        <input type="text" name="upubid"> <br>
+        <label for="uprid">Private Key</label>
+        <input type="text" name="uprid"> <br>
+        <label for="data">Data</label>
+        <input type="file" accept=".txt" name="data"><br>
+        <button type="submit">Add Data</button>
+    </form>
+    <br>
+    <a href="/signup">New User? Signup Here</a>
+</div>
+
+<div >
+    <h2>Approver Login</h2>
+    <form action="/alogin" method="post">
+        <label for="apubid">Public Key</label>
+        <input type="text" name="apubid"> <br>
+        <label for="aprid">Private Key</label>
+        <input type="text" name="aprid"><br>
+        <button type="submit">Login</button>
+    </form>
+</div>

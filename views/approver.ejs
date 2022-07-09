@@ -1,0 +1,59 @@
+<head>
+  <meta charset="utf-8">
+  <style>
+    body{
+      text-align: center;
+    }
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  </style>
+</head>
+
+<div class="box" id="heading">
+    <h1>Approver</h1>
+  </div>
+
+  <div style="text-align: center;">
+      <form action="/approver" method="post" style="text-align: center;">
+        <table style="margin-left: auto; margin-right: auto;" >
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>User ID</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% newListItems.forEach(function(itemname,idx){ %>
+              <tr>
+                <td>
+                  <input type="checkbox" name="checkbox" value="<%=idx%>" id="<%=itemname.key%>">
+                </td>
+                <td>
+                  <%=  itemname.key  %>
+                </td>
+                <td>
+                  <button type="button" value="<%=itemname.data%>" onclick="download(this.value)">See File</button>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <br>
+        <button type="submit">Add to chain</button>
+      </form>
+  </div>
+
+  <script>
+    function download(text)
+    {
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,'+ encodeURIComponent(text));
+      element.setAttribute('download', 'data.txt');
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  </script>
